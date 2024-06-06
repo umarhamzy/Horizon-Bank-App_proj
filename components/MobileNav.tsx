@@ -14,8 +14,9 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Footer from "./Footer";
 
-const MobileNav = () => {
+const MobileNav = ({ user }: MobileNavProps) => {
   const pathname = usePathname();
 
   return (
@@ -30,7 +31,7 @@ const MobileNav = () => {
             className="cursor-pointer"
           />
         </SheetTrigger>
-        <SheetContent side={"left"} className="border-none bg-white ">
+        <SheetContent className="border-none bg-white ">
           <Link
             href={"/"}
             className="cursor-pointer flex items-center gap-1 px-4"
@@ -86,7 +87,7 @@ const MobileNav = () => {
                 USER
               </nav>
             </SheetClose>
-            FOOTER
+            <Footer user={user} type="mobile" />
           </div>
         </SheetContent>
       </Sheet>
